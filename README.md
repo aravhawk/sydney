@@ -52,8 +52,6 @@ A production-ready voice assistant with **Alexa-style wake word detection**, mul
 ```
 You: "Sydney"
 Assistant: "How can I help you?"
-You: "What's the weather like today?"
-Assistant: [Processes with AI and speaks response]
 You: "Can you summarize my unread emails?"
 Assistant: [Fetches emails and provides AI analysis]
 [Returns to listening for "Sydney"]
