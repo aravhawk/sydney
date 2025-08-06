@@ -1,0 +1,41 @@
+# RouteLLM Configuration
+# This configuration is used when system capability is HIGH
+
+# Matrix Factorization Router Configuration
+mf:
+  checkpoint: "routellm/mf_gpt4_augmented"
+
+# BERT Router Configuration (alternative)
+bert:
+  checkpoint: "routellm/bert_gpt4_augmented"
+
+# Causal LLM Router Configuration (alternative)
+causal_llm:
+  checkpoint: "routellm/causal_llm_gpt4_augmented"
+
+# Similarity-weighted ranking Configuration (alternative)
+sw_ranking:
+  datasets:
+    - "lmsys/lmsys-arena-human-preference-55k"
+    - "routellm/gpt4_judge_battles"
+
+# Arena embedding datasets
+arena_embedding_datasets:
+  - "routellm/arena_battles_embeddings"
+  - "routellm/gpt4_judge_battles_embeddings"
+
+# Model routing configuration
+routing:
+  # Default router to use
+  default_router: "mf"
+  
+  # Model configuration for high-capability systems
+  strong_model: "ollama_chat/gemma3n-e4b-it:latest"
+  weak_model: "ollama_chat/gemma3n-e2b-it:latest"
+  
+  # Router threshold (0.11593 routes ~50% to strong model)
+  threshold: 0.11593
+  
+  # Fallback configuration
+  fallback_to_single_model: true
+  fallback_model: "gemma3n-e2b-it:latest"

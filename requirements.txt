@@ -1,0 +1,199 @@
+# ==============================================================================
+# Enhanced Voice Assistant - Complete Requirements
+# ==============================================================================
+# 
+# This file contains ALL dependencies for the voice assistant project.
+# Install with: pip install -r requirements.txt
+#
+# For development only: pip install -r requirements.txt[dev]
+# For production monitoring: pip install -r requirements.txt[monitoring]
+# For enterprise features: pip install -r requirements.txt[enterprise]
+# ==============================================================================
+
+# ==============================================================================
+# CORE DEPENDENCIES (Required for basic functionality)
+# ==============================================================================
+
+# Ollama Python SDK - Official client for Ollama LLM server
+ollama>=0.5.1,<0.6.0
+
+# Speech Recognition - Google Speech Recognition API support
+SpeechRecognition>=3.14.0,<4.0.0
+
+# Audio Processing - Python bindings for PortAudio
+PyAudio>=0.2.14,<0.3.0
+
+# HTTP Requests - Reliable HTTP library for API calls  
+requests>=2.32.0,<3.0.0
+
+# Timezone Support - Accurate timezone handling
+pytz>=2025.1
+
+# ==============================================================================
+# MODEL ROUTING DEPENDENCIES (Optional - for high-capability systems)
+# ==============================================================================
+
+# RouteLLM - Intelligent model routing with matrix factorization
+routellm[serve]>=0.2.0,<0.3.0
+
+# NumPy - Numerical computing (required by RouteLLM)
+numpy>=2.2.0,<3.0.0
+
+# PyTorch - Machine learning framework (required by RouteLLM)
+torch>=2.6.0,<3.0.0
+
+# ==============================================================================
+# DEVELOPMENT DEPENDENCIES (Optional - for development and testing)
+# ==============================================================================
+
+# Code Quality & Formatting
+black>=24.0.0; extra == "dev"
+isort>=5.13.0; extra == "dev"
+flake8>=7.0.0; extra == "dev"
+mypy>=1.8.0; extra == "dev"
+
+# Testing Framework
+pytest>=8.0.0; extra == "dev"
+pytest-cov>=4.0.0; extra == "dev"
+pytest-mock>=3.12.0; extra == "dev"
+pytest-asyncio>=0.23.0; extra == "dev"
+
+# Documentation
+sphinx>=7.2.0; extra == "dev"
+sphinx-rtd-theme>=2.0.0; extra == "dev"
+
+# Development Utilities
+pre-commit>=3.6.0; extra == "dev"
+ipython>=8.20.0; extra == "dev"
+jupyter>=1.0.0; extra == "dev"
+
+# Debugging & Profiling
+pdbpp>=0.10.3; extra == "dev"
+memory-profiler>=0.61.0; extra == "dev"
+line-profiler>=4.1.0; extra == "dev"
+
+# Security Scanning
+bandit>=1.7.5; extra == "dev"
+safety>=3.0.0; extra == "dev"
+
+# Performance Monitoring (Development)
+psutil>=5.9.0; extra == "dev"
+py-spy>=0.3.14; extra == "dev"
+
+# ==============================================================================
+# PRODUCTION MONITORING DEPENDENCIES (Optional - for production monitoring)
+# ==============================================================================
+
+# Enhanced Logging & Monitoring
+colorlog>=6.7.0; extra == "monitoring"
+python-json-logger>=2.0.0; extra == "monitoring"
+psutil>=5.9.0; extra == "monitoring"
+watchdog>=3.0.0; extra == "monitoring"
+
+# ==============================================================================
+# ENTERPRISE FEATURES (Optional - for advanced deployments)
+# ==============================================================================
+
+# Configuration Management
+pydantic>=2.5.0; extra == "enterprise"
+python-dotenv>=1.0.0; extra == "enterprise"
+PyYAML>=6.0.1; extra == "enterprise"
+
+# Database & Persistence
+sqlalchemy>=2.0.0; extra == "enterprise"
+redis>=5.0.0; extra == "enterprise"
+
+# Web Interface & API
+fastapi>=0.104.0; extra == "enterprise"
+uvicorn>=0.24.0; extra == "enterprise"
+websockets>=12.0; extra == "enterprise"
+
+# Advanced NLP & AI
+nltk>=3.8.1; extra == "enterprise"
+sentence-transformers>=2.2.2; extra == "enterprise"
+langdetect>=1.0.9; extra == "enterprise"
+
+# Email Processing Enhancement
+email-validator>=2.1.0; extra == "enterprise"
+extract-msg>=0.48.0; extra == "enterprise"
+
+# Security & Encryption
+cryptography>=41.0.0; extra == "enterprise"
+
+# Deployment & Containerization
+gunicorn>=21.2.0; extra == "enterprise"
+docker>=7.0.0; extra == "enterprise"
+kubernetes>=28.1.0; extra == "enterprise"
+
+# Metrics & Telemetry
+prometheus-client>=0.19.0; extra == "enterprise"
+opentelemetry-api>=1.21.0; extra == "enterprise"
+opentelemetry-sdk>=1.21.0; extra == "enterprise"
+
+# Performance Optimization
+orjson>=3.9.0; extra == "enterprise"
+numba>=0.58.0; extra == "enterprise"
+pympler>=0.9; extra == "enterprise"
+joblib>=1.3.0; extra == "enterprise"
+
+# ==============================================================================
+# SYSTEM INTEGRATION DEPENDENCIES
+# ==============================================================================
+
+# System capability detection and integration
+# These are imported from the parent project structure
+# utils/system_spec_determinator.py (included in project)
+
+# ==============================================================================
+# PLATFORM-SPECIFIC NOTES
+# ==============================================================================
+#
+# macOS (Current platform):
+# - PyAudio requires portaudio: brew install portaudio
+# - macOS 'say' command used for TTS (built-in)
+# - AppleScript used for Mail app integration (built-in)
+#
+# Linux:
+# - PyAudio requires: sudo apt-get install portaudio19-dev python3-pyaudio
+# - TTS requires: sudo apt-get install espeak espeak-data
+# - Mail integration requires adaptation
+#
+# Windows:
+# - PyAudio binary wheels available via pip
+# - TTS requires Windows Speech API or alternative
+# - Mail integration requires adaptation
+#
+# ==============================================================================
+# INSTALLATION COMMANDS
+# ==============================================================================
+#
+# Basic installation (core functionality only):
+# pip install -r requirements.txt
+#
+# Development installation:
+# pip install -r requirements.txt[dev]
+#
+# Production with monitoring:
+# pip install -r requirements.txt[monitoring]
+#
+# Full enterprise installation:
+# pip install -r requirements.txt[enterprise]
+#
+# All features:
+# pip install -r requirements.txt[dev,monitoring,enterprise]
+#
+# ==============================================================================
+# VERSION CONSTRAINTS RATIONALE
+# ==============================================================================
+#
+# ollama>=0.5.1,<0.6.0:     Latest stable with chat API support
+# SpeechRecognition>=3.14.0: Latest with improved Google API handling
+# PyAudio>=0.2.14:          Latest stable with Python 3.12 support
+# requests>=2.32.0:         Security updates and HTTP/2 support  
+# pytz>=2025.1:             Latest timezone database
+# routellm>=0.2.0:          Current stable release
+# numpy>=2.2.0:             Latest stable with performance improvements
+# torch>=2.6.0:             Latest stable with Apple Silicon optimization
+#
+# Upper bounds prevent breaking changes from major version updates
+# ==============================================================================
